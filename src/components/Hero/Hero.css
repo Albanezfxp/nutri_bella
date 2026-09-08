@@ -1,0 +1,113 @@
+.hero {
+  position: relative;
+  padding-top: calc(var(--header-h) + clamp(2.25rem, 9vw, 4.5rem));
+  border-bottom: 1px solid var(--line);
+}
+
+.hero__inner {
+  display: grid;
+  gap: clamp(2.5rem, 8vw, 3.5rem);
+}
+
+.hero__eyebrow {
+  margin-bottom: var(--s-5);
+}
+
+.hero__title {
+  font-size: var(--fs-display);
+  line-height: var(--lh-display);
+  letter-spacing: var(--tr-display);
+  color: var(--ink);
+  max-width: 14ch;
+}
+
+.hero__title .wt-bold {
+  color: var(--sage-ink);
+}
+
+.hero__lead {
+  margin-top: var(--s-5);
+}
+
+.hero__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+}
+
+.hero__note {
+  margin-top: var(--s-5);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* --- A assinatura: painel sage sangrando para fora do container e a foto
+       recortada furando o painel em cima e apoiando na linha da secao. --- */
+
+.hero__figure {
+  position: relative;
+  margin: 0;
+  isolation: isolate;
+}
+
+.hero__figure::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  left: calc(50% - 50vw);
+  right: calc(50% - 50vw);
+  top: 24%;
+  bottom: 0;
+  background: var(--sage-mist);
+}
+
+.hero__photo {
+  width: 100%;
+  max-width: 26rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 480px) {
+  .hero__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+}
+
+@media (min-width: 900px) {
+  .hero__inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.04fr);
+    align-items: end;
+    gap: clamp(2rem, 4vw, 4rem);
+  }
+
+  .hero__copy {
+    padding-bottom: clamp(3.5rem, 7vw, 6rem);
+  }
+
+  .hero__title {
+    max-width: 11ch;
+  }
+
+  .hero__figure::before {
+    left: 7%;
+    top: 16%;
+  }
+
+  .hero__photo {
+    max-width: none;
+    /* a foto cresce um pouco alem da coluna, sem estourar a direita */
+    width: min(100%, 34rem);
+    margin-inline: 0 auto;
+  }
+}
+
+@media (min-width: 1100px) {
+  .hero__photo {
+    width: 100%;
+  }
+}

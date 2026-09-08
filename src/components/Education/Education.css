@@ -1,0 +1,65 @@
+.education {
+  background: var(--sage-mist);
+}
+
+.education__title {
+  max-width: 18ch;
+  margin-top: var(--s-4);
+  margin-bottom: var(--s-6);
+  font-size: var(--fs-heading);
+}
+
+.education__title .wt-bold {
+  color: var(--sage-ink);
+}
+
+.education__body {
+  display: grid;
+  gap: clamp(2rem, 6vw, 3rem);
+}
+
+.education__figure {
+  margin: 0;
+}
+
+.education__figure img {
+  width: 100%;
+}
+
+.education__copy .prose {
+  color: var(--ink-soft);
+}
+
+.education__cta {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2) var(--s-3);
+  min-height: 44px;
+  margin-top: var(--s-6);
+  font-size: var(--fs-title);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  color: var(--sage-ink);
+  transition: color var(--dur) var(--ease);
+}
+
+.education__cta:hover {
+  color: var(--rose-deep);
+}
+
+.education__handle {
+  font-size: var(--fs-small);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 900px) {
+  /* alinhada ao container da pagina, sem sangrar para a borda da tela */
+  .education__body {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: center;
+  }
+}

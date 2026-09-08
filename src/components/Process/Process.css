@@ -1,0 +1,74 @@
+.process {
+  background: var(--sage-mist);
+}
+
+.process__title {
+  max-width: 18ch;
+  margin-top: var(--s-4);
+  font-size: var(--fs-heading);
+}
+
+.process__title .wt-bold {
+  color: var(--sage-ink);
+}
+
+.process__lead {
+  margin-top: var(--s-5);
+}
+
+.process__list {
+  margin-top: clamp(2.5rem, 7vw, 4rem);
+  border-top: 1px solid var(--line);
+}
+
+.process__item {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: var(--s-4) var(--s-5);
+  padding-block: clamp(1.75rem, 5vw, 2.75rem);
+  border-bottom: 1px solid var(--line);
+}
+
+/* A numeracao existe porque isto e mesmo uma sequencia, nao enfeite. */
+.process__index {
+  font-size: clamp(2rem, 7vw, 3.25rem);
+  font-weight: 300;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  color: var(--sage-deep);
+}
+
+.process__stepTitle {
+  font-size: var(--fs-title);
+  font-weight: 800;
+  line-height: var(--lh-title);
+  color: var(--ink);
+}
+
+.process__stepText {
+  max-width: 52ch;
+  margin-top: var(--s-3);
+  color: var(--ink-soft);
+}
+
+@media (min-width: 700px) {
+  .process__item {
+    grid-template-columns: 6rem minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: start;
+  }
+}
+
+@media (min-width: 1000px) {
+  .process__item {
+    grid-template-columns: 8rem minmax(0, 22ch) minmax(0, 1fr);
+  }
+
+  .process__copy {
+    display: contents;
+  }
+
+  .process__stepText {
+    margin-top: 0;
+  }
+}

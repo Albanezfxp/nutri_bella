@@ -1,0 +1,203 @@
+.story__title {
+  margin-top: var(--s-4);
+  font-size: var(--fs-heading);
+  max-width: 24ch;
+}
+
+/* O rosa entra aqui como palavra em destaque — nunca como fundo de secao. */
+.story__title .wt-bold {
+  color: var(--rose-deep);
+}
+
+/* --- O numero como elemento tipografico --------------------------------- */
+
+.story__body {
+  display: grid;
+  gap: clamp(2rem, 6vw, 3rem);
+  margin-top: clamp(2.5rem, 7vw, 4.5rem);
+}
+
+.story__numLine {
+  display: flex;
+  align-items: baseline;
+  gap: 0.06em;
+  font-size: var(--fs-numeral);
+  line-height: var(--lh-numeral);
+}
+
+.story__num {
+  font-weight: 300;
+  letter-spacing: -0.055em;
+  color: var(--sage-ink);
+}
+
+.story__unit {
+  font-size: 0.2em;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  color: var(--rose-deep);
+}
+
+.story__numCaption {
+  max-width: 24ch;
+  margin-top: var(--s-4);
+  padding-top: var(--s-3);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  line-height: 1.5;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* --- Antes e depois: transformacao DELA, sempre legendada --------------- */
+
+.story__transform {
+  margin: clamp(3rem, 8vw, 5rem) 0 0;
+}
+
+.story__transform img {
+  width: 100%;
+}
+
+.story__transformCaption {
+  display: flex;
+  gap: var(--s-3);
+  max-width: 34ch;
+  margin-top: var(--s-5);
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-body);
+  line-height: 1.55;
+  color: var(--ink);
+}
+
+.story__transformCaption .sparkle {
+  margin-top: 0.5em;
+  color: var(--rose);
+}
+
+/* --- Citacao dela em bloco rosa claro (destaque pontual) ---------------- */
+
+.story__quote {
+  margin: clamp(3rem, 8vw, 5.5rem) calc(50% - 50vw) 0;
+  padding-block: clamp(2.5rem, 7vw, 4.5rem);
+  padding-inline: max(var(--gutter), calc(50vw - var(--maxw) / 2 + var(--gutter)));
+  background: var(--rose-mist);
+}
+
+.story__quoteText {
+  max-width: 20ch;
+  font-size: var(--fs-heading);
+  line-height: 1.08;
+  letter-spacing: var(--tr-heading);
+  color: var(--ink);
+}
+
+.story__quoteText::before {
+  content: "\201C";
+}
+
+.story__quoteText::after {
+  content: "\201D";
+}
+
+.story__quoteCite {
+  display: block;
+  margin-top: var(--s-5);
+  font-size: var(--fs-label);
+  font-style: normal;
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--rose-deep);
+}
+
+/* sem travessao: a cor e o caixa alta ja marcam a assinatura */
+
+/* --- Corrida: ela vive o que orienta ------------------------------------ */
+
+.story__run {
+  display: grid;
+  gap: clamp(1.5rem, 5vw, 2.5rem);
+  margin-top: clamp(3rem, 8vw, 5rem);
+}
+
+.story__runFigure {
+  margin: 0;
+}
+
+.story__runFigure img {
+  width: 100%;
+}
+
+.story__runTitle {
+  padding-top: var(--s-4);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-title);
+  font-weight: 800;
+  color: var(--sage-ink);
+}
+
+.story__runText {
+  max-width: 42ch;
+  margin-top: var(--s-4);
+  color: var(--ink-soft);
+}
+
+/* --- A virada: hoje ela faz isso pelos outros --------------------------- */
+
+.story__closing {
+  max-width: 50ch;
+  margin: clamp(3rem, 8vw, 5rem) 0 0;
+  padding-top: clamp(1.5rem, 4vw, 2.5rem);
+  border-top: 1px solid var(--line);
+  font-size: var(--fs-title);
+  line-height: 1.38;
+  letter-spacing: -0.02em;
+}
+
+.story__closing .wt-bold {
+  color: var(--sage-ink);
+}
+
+.story__closingTail {
+  color: var(--ink-soft);
+}
+
+/* ==========================================================================
+   Desktop — grid deslocado e sangria para a esquerda
+   ========================================================================== */
+
+@media (min-width: 900px) {
+  .story__body {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 5vw, 4.5rem);
+    align-items: start;
+  }
+
+  /* alinhada ao container da pagina, sem sangrar para a borda da tela */
+  .story__transform {
+    display: grid;
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(1.5rem, 3vw, 3rem);
+    align-items: end;
+  }
+
+  .story__transformCaption {
+    margin-top: 0;
+    padding-bottom: var(--s-2);
+  }
+
+  .story__run {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(2rem, 5vw, 4rem);
+    align-items: center;
+  }
+
+  /* fecha alinhado a direita — o texto nao comeca sempre na mesma coluna */
+  .story__closing {
+    margin-left: auto;
+  }
+}

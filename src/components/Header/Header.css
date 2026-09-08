@@ -1,0 +1,191 @@
+.header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 50;
+  background: color-mix(in srgb, var(--bone) 82%, transparent);
+  border-bottom: 1px solid transparent;
+  transition: background-color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+@supports (backdrop-filter: blur(1px)) {
+  .header {
+    backdrop-filter: blur(14px) saturate(1.2);
+  }
+}
+
+.header.is-scrolled,
+.header.is-open {
+  background: color-mix(in srgb, var(--bone) 94%, transparent);
+  border-bottom-color: var(--line);
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  height: var(--header-h);
+}
+
+/* --- Logo tipografado (nao existe arquivo de logo ainda) --- */
+
+.header__logo {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  min-width: 0;
+  margin-right: auto;
+  font-size: clamp(0.9375rem, 4vw, 1.0625rem);
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.header__spark {
+  align-self: center;
+  color: var(--sage);
+}
+
+.header__role {
+  display: none;
+  font-size: 0.625rem;
+  font-weight: 600;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* --- Nav desktop (escondida no mobile) --- */
+
+.header__nav,
+.header__cta {
+  display: none;
+}
+
+/* --- Botao hamburguer: alvo de 48x48 --- */
+
+.header__toggle {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  margin-right: -10px;
+  color: var(--ink);
+}
+
+.header__burger {
+  display: grid;
+  gap: 6px;
+  width: 22px;
+}
+
+.header__burger i {
+  display: block;
+  height: 1.5px;
+  background: currentColor;
+  transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
+}
+
+.is-open .header__burger i:first-child {
+  transform: translateY(3.75px) rotate(45deg);
+}
+
+.is-open .header__burger i:last-child {
+  transform: translateY(-3.75px) rotate(-45deg);
+}
+
+/* --- Painel mobile: largura total, sem scroll interno --- */
+
+.header__panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-5);
+  padding: var(--s-5) var(--gutter) var(--s-7);
+  border-top: 1px solid var(--line);
+  background: var(--bone);
+}
+
+.header__panel[hidden] {
+  display: none;
+}
+
+.header__panelList {
+  display: flex;
+  flex-direction: column;
+}
+
+.header__panelLink {
+  display: flex;
+  align-items: center;
+  min-height: 56px;
+  border-bottom: 1px solid var(--line);
+  font-size: 1.25rem;
+  font-weight: 300;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  transition: color var(--dur) var(--ease), border-color var(--dur) var(--ease);
+}
+
+.header__panelLink:hover,
+.header__panelLink:focus-visible {
+  color: var(--sage-ink);
+  border-bottom-color: var(--sage);
+}
+
+.header__panelCta {
+  width: 100%;
+}
+
+.header__panelMeta {
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* ==========================================================================
+   Desktop
+   ========================================================================== */
+
+@media (min-width: 600px) {
+  .header__role {
+    display: block;
+  }
+}
+
+@media (min-width: 900px) {
+  .header__toggle,
+  .header__panel {
+    display: none;
+  }
+
+  .header__nav {
+    display: block;
+  }
+
+  .header__list {
+    display: flex;
+    align-items: center;
+    gap: var(--s-6);
+    margin: 0;
+  }
+
+  .header__link {
+    font-size: var(--fs-small);
+    font-weight: 500;
+    color: var(--ink-soft);
+  }
+
+  .header__link:hover,
+  .header__link:focus-visible {
+    color: var(--sage-ink);
+  }
+
+  .header__cta {
+    display: inline-flex;
+    min-height: 2.75rem;
+    padding: 0.625rem 1.25rem;
+  }
+}

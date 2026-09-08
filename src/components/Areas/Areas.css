@@ -1,0 +1,59 @@
+.areas__title {
+  max-width: 16ch;
+  margin-top: var(--s-4);
+  font-size: var(--fs-heading);
+}
+
+.areas__title .wt-bold {
+  color: var(--sage-ink);
+}
+
+.areas__list {
+  margin-top: clamp(2.5rem, 7vw, 4rem);
+}
+
+/* Lista tipografica com linha fina — nao grid de cards com icone. */
+.areas__item {
+  display: grid;
+  gap: var(--s-3);
+  padding-block: clamp(1.75rem, 5vw, 2.5rem);
+  border-bottom: 1px solid var(--line);
+  transition: border-color var(--dur) var(--ease);
+}
+
+.areas__item:first-child {
+  border-top: 1px solid var(--line);
+}
+
+.areas__item:hover {
+  border-bottom-color: var(--sage);
+}
+
+.areas__item:first-child:hover {
+  border-top-color: var(--sage);
+}
+
+.areas__itemTitle {
+  font-size: clamp(1.5rem, 4.5vw, 2.25rem);
+  font-weight: 300;
+  letter-spacing: -0.03em;
+  color: var(--ink-soft);
+  transition: color var(--dur) var(--ease);
+}
+
+.areas__item:hover .areas__itemTitle {
+  color: var(--sage-ink);
+}
+
+.areas__itemText {
+  max-width: 52ch;
+  color: var(--ink-soft);
+}
+
+@media (min-width: 800px) {
+  .areas__item {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: clamp(1.5rem, 4vw, 3rem);
+    align-items: baseline;
+  }
+}

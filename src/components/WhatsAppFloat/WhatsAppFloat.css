@@ -1,0 +1,42 @@
+.waFloat {
+  position: fixed;
+  right: var(--s-4);
+  bottom: calc(env(safe-area-inset-bottom, 0px) + var(--s-4));
+  z-index: 40;
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--sage-deep);
+  border-radius: var(--radius);
+  background: var(--sage-deep);
+  color: #ffffff;
+  opacity: 0;
+  transform: translate3d(0, 12px, 0);
+  pointer-events: none;
+  transition: opacity var(--dur) var(--ease), transform var(--dur) var(--ease),
+    background-color var(--dur) var(--ease);
+}
+
+.waFloat.is-visible {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+.waFloat:hover {
+  background: var(--sage-ink);
+}
+
+/* No desktop o CTA fixo do header ja resolve. */
+@media (min-width: 900px) {
+  .waFloat {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .waFloat {
+    transform: none;
+  }
+}

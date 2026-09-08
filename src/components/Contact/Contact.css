@@ -1,0 +1,91 @@
+/* O segundo pico visual: o unico bloco escuro de uma pagina clara. */
+.contact {
+  background: var(--sage-deep);
+  color: var(--on-dark);
+}
+
+.contact__inner {
+  display: grid;
+  gap: clamp(2.5rem, 7vw, 4rem);
+}
+
+.contact__title {
+  max-width: 15ch;
+  margin-top: var(--s-4);
+  font-size: var(--fs-heading);
+  color: var(--on-dark);
+}
+
+.contact__title .wt-bold {
+  color: var(--rose-on-dark);
+}
+
+.contact__lead {
+  max-width: 44ch;
+  margin-top: var(--s-5);
+  font-size: var(--fs-lead);
+  line-height: 1.58;
+  color: var(--on-dark-soft);
+}
+
+.contact__actions {
+  display: flex;
+  flex-direction: column;
+  gap: var(--s-3);
+  margin-top: var(--s-6);
+}
+
+.contact__channels {
+  margin: 0;
+  border-top: 1px solid var(--line-on-dark);
+}
+
+.contact__channel {
+  display: grid;
+  gap: var(--s-1);
+  padding-block: var(--s-4);
+  border-bottom: 1px solid var(--line-on-dark);
+}
+
+.contact__channelLabel {
+  font-size: var(--fs-label);
+  font-weight: 700;
+  letter-spacing: var(--tr-label);
+  text-transform: uppercase;
+  color: var(--on-dark-soft);
+}
+
+.contact__channelValue {
+  margin: 0;
+  font-size: var(--fs-lead);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--on-dark);
+}
+
+@media (min-width: 480px) {
+  .contact__actions {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .contact__channel {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: var(--s-4);
+    align-items: baseline;
+  }
+}
+
+@media (min-width: 900px) {
+  .contact__inner {
+    grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+    gap: clamp(2.5rem, 6vw, 5rem);
+    align-items: start;
+  }
+
+  .contact__channel {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-2);
+    padding-block: var(--s-5);
+  }
+}

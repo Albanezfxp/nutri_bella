@@ -1,0 +1,16 @@
+.sparkle {
+  flex: none;
+  transition: transform 0.6s var(--ease);
+}
+
+/* A faisca gira de leve quando a secao entra na tela. */
+.is-visible .sparkle {
+  transform: rotate(90deg);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sparkle,
+  .is-visible .sparkle {
+    transform: none;
+  }
+}
