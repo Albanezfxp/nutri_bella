@@ -46,7 +46,9 @@ O rosa puro sobre o verde escuro dá só 2,91:1, por isso existe `--rose-on-dark
 
 **Ornamento:** a faísca de 4 pontas da arte da marca (`components/Sparkle`) é o único enfeite permitido. Aparece como marcador de eyebrow, na logo e no rodapé.
 
-**Assimetria:** o hero sangra à direita (painel sage), o antes/depois e a foto de conteúdo sangram à esquerda, e o fecho da história alinha à direita. O cálculo `margin-left: calc(50% - 50vw)` mora sempre no **container** filho direto de `.shell`; se ficar no item do grid, a conta não bate com a borda da viewport e o recorte come o rosto.
+**Alinhamento:** todas as fotos alinham pela borda esquerda do container, junto com o texto (conferido em 1024, 1280, 1440 e 1920). Quem sangra para fora do container é só o painel sage atrás do hero e a faixa rosa da citação, e nesses dois casos o `calc(50% - 50vw)` mora no **container** filho direto de `.shell`; se ficar no item do grid, a conta não bate com a borda da viewport.
+
+**Assimetria** vem do grid deslocado e não da sangria: as colunas mudam de proporção a cada seção, o texto não começa sempre na mesma coluna e o fecho da história alinha à direita.
 
 **Sem travessão.** A página inteira não usa `—`, `–` nem `−` em nenhum texto, alt, meta ou conteúdo de `::before`.
 
